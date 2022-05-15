@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Category, Women
+from .models import Category, Women
 
 
 admin.site.register(Women)
