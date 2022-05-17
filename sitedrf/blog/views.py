@@ -1,6 +1,5 @@
-from re import T
 from django.forms import model_to_dict
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import render
@@ -9,7 +8,12 @@ from .models import Women
 from .serializer import WomenSerializer
 
 
-class WomenAPIView(generics.ListCreateAPIView):
+class WomenlViewSet(viewsets.ModelViewSet):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+
+
+""" class WomenAPIView(generics.ListCreateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
 
@@ -52,5 +56,5 @@ class WomenAPIViews(APIView):
         except:
             return Response({'error': 'Object does not exist'})
         instance.delete()
-        return Response({'post': 'Post deleted'})
+        return Response({'post': 'Post deleted'}) """
 
