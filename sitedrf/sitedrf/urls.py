@@ -5,8 +5,9 @@ from blog.views import WomenlViewSet
 from rest_framework import routers
 
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'women', WomenlViewSet)
+#print(router.urls)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
