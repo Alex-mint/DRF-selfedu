@@ -5,7 +5,7 @@ from .models import Women
 class WomenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Women
-        fields = ['title', 'content' , 'cat']
+        fields = ['title', 'content', 'is_published' , 'cat']
 
 """ class WomenSerializers(serializers.Serializer):
     title = serializers.CharField(max_length=255)
