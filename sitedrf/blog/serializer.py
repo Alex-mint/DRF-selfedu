@@ -2,12 +2,12 @@ from rest_framework import serializers
 from .models import Women
 
 
-""" class WomenSerializer(serializers.ModelSerializer):
+class WomenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Women
-        fields = ['title', 'cat_id'] """
+        fields = ['title', 'content' , 'cat']
 
-class WomenSerializer(serializers.Serializer):
+""" class WomenSerializers(serializers.Serializer):
     title = serializers.CharField(max_length=255)
     content = serializers.CharField()
     time_create = serializers.DateTimeField(read_only=True)
@@ -26,4 +26,4 @@ class WomenSerializer(serializers.Serializer):
         instance.is_published = validated_data.get('is_published', instance.is_published)
         instance.cat_id = validated_data.get('cat_id', instance.cat_id)
         instance.save()
-        return instance
+        return instance """

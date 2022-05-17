@@ -9,12 +9,17 @@ from .models import Women
 from .serializer import WomenSerializer
 
 
-class WomenAPIViews(generics.ListAPIView):
+class WomenAPIView(generics.ListCreateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
 
 
-class WomenAPIView(APIView):
+class WomenCRUDView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+
+
+class WomenAPIViews(APIView):
     def get(self, request):
         women = Women.objects.all().values()
         return Response({'posts': list(women)})
