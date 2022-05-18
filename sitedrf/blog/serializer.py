@@ -1,11 +1,15 @@
+from dataclasses import field
+from email.policy import default
 from rest_framework import serializers
 from .models import Women
 
 
 class WomenSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Women
-        fields = ['title', 'content', 'is_published' , 'cat']
+        fields = '__all__'
+        #fields = ['title', 'content', 'is_published' , 'cat']
 
 """ class WomenSerializers(serializers.Serializer):
     title = serializers.CharField(max_length=255)
